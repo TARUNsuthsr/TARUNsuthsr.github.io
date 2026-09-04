@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tarun | Aspiring Software Developer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#070a14;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ---------- BACKGROUND ---------- */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#315cff;
+    filter:blur(180px);
+    opacity:.16;
+    top:-180px;
+    left:-150px;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:#8a42ff;
+    filter:blur(180px);
+    opacity:.12;
+    right:-150px;
+    bottom:-150px;
+    z-index:-2;
+}
+
+/* ---------- NAVBAR ---------- */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(7,10,20,.65);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#5c8cff;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 70px;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 16px;
+    border:1px solid rgba(100,140,255,.35);
+    background:rgba(60,90,200,.08);
+    border-radius:50px;
+    color:#8baaff;
+    font-size:13px;
+    margin-bottom:28px;
+}
+
+.hero h1{
+    font-size:clamp(60px,11vw,125px);
+    letter-spacing:-5px;
+    line-height:.9;
+    font-weight:900;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#fff,#7d9fff,#b48cff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero h2{
+    margin-top:25px;
+    font-size:clamp(18px,3vw,28px);
+    color:#cbd1e2;
+    font-weight:500;
+}
+
+.hero p{
+    max-width:650px;
+    margin:22px auto;
+    color:#8e95aa;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.buttons{
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 24px;
+    margin:7px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.primary{
+    background:white;
+    color:#080b14;
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 35px rgba(255,255,255,.15);
+}
+
+.secondary{
+    border:1px solid rgba(255,255,255,.15);
+    color:white;
+    background:rgba(255,255,255,.04);
+}
+
+.secondary:hover{
+    background:rgba(255,255,255,.08);
+    transform:translateY(-3px);
+}
+
+/* ---------- GENERAL ---------- */
+
+section{
+    padding:100px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title span{
+    color:#7395ff;
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.section-title h2{
+    font-size:40px;
+    margin-top:10px;
+}
+
+.section-title p{
+    color:#81889d;
+    margin-top:12px;
+}
+
+/* ---------- ABOUT ---------- */
+
+.about{
+    max-width:950px;
+    margin:auto;
+    padding:35px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.035);
+    border-radius:25px;
+    backdrop-filter:blur(15px);
+}
+
+.about p{
+    color:#a9afc0;
+    line-height:1.9;
+    font-size:16px;
+}
+
+/* ---------- CARDS ---------- */
+
+.grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:28px;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.035);
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(110,145,255,.35);
+    background:rgba(255,255,255,.055);
+}
+
+.icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(90,120,255,.12);
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#858da2;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* ---------- SKILLS ---------- */
+
+.skills{
+    max-width:900px;
+    margin:auto;
+}
+
+.skill{
+    margin-bottom:25px;
+}
+
+.skill-head{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:9px;
+    color:#c9cedb;
+    font-size:14px;
+}
+
+.bar{
+    height:7px;
+    background:#171c2d;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,#4c72ff,#9c6cff);
+}
+
+/* ---------- PROJECTS ---------- */
+
+.project{
+    min-height:230px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.project-tag{
+    color:#7697ff;
+    font-size:12px;
+    letter-spacing:1px;
+    margin-bottom:15px;
+}
+
+.project a{
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+}
+
+/* ---------- JOURNEY ---------- */
+
+.timeline{
+    max-width:800px;
+    margin:auto;
+    border-left:1px solid rgba(255,255,255,.12);
+    padding-left:30px;
+}
+
+.step{
+    margin-bottom:45px;
+    position:relative;
+}
+
+.step::before{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#7190ff;
+    left:-36px;
+    top:5px;
+    box-shadow:0 0 20px #7190ff;
+}
+
+.step small{
+    color:#718fff;
+}
+
+.step h3{
+    margin:7px 0;
+}
+
+.step p{
+    color:#858da2;
+    line-height:1.7;
+}
+
+/* ---------- CONTACT ---------- */
+
+.contact{
+    text-align:center;
+    max-width:850px;
+    margin:auto;
+    padding:60px 25px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(
+        135deg,
+        rgba(80,110,255,.08),
+        rgba(150,90,255,.05)
+    );
+}
+
+.contact h2{
+    font-size:42px;
+}
+
+.contact p{
+    color:#8c93a8;
+    margin:15px 0 25px;
+    line-height:1.7;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+    text-align:center;
+    padding:35px 20px;
+    color:#626a7d;
+    border-top:1px solid rgba(255,255,255,.06);
+    font-size:13px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:750px){
+
+    nav{
+        padding:15px 5%;
+    }
+
+    nav div:last-child{
+        display:none;
+    }
+
+    section{
+        padding:75px 5%;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .about{
+        padding:25px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .contact h2{
+        font-size:32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="logo">T<span>.</span></div>
+
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#journey">Journey</a>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+    <div class="badge">
+        ● Currently learning & building
+    </div>
+
+    <h1>
+        <span class="gradient">TARUN</span>
+    </h1>
+
+    <h2>
+        Aspiring Software Developer
+    </h2>
+
+    <p>
+        Learning to code, building projects and developing
+        strong foundations in programming and modern web development.
+    </p>
+
+    <div class="buttons">
+        <a href="#projects" class="btn primary">
+            Explore My Work →
+        </a>
+
+        <a href="#about" class="btn secondary">
+            About Me
+        </a>
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="section-title">
+    <span>01 — About</span>
+    <h2>Who I Am</h2>
+    <p>A learner with a vision to build something meaningful.</p>
+</div>
+
+<div class="about">
+
+<p>
+    Hi, I'm <strong>Tarun</strong>.
+    I'm currently learning coding and exploring the world of
+    software development. My focus is on understanding programming
+    fundamentals, web technologies and problem solving.
+    <br><br>
+
+    Instead of only learning theory, I'm interested in
+    <strong>building real projects</strong> and improving through
+    practice. This portfolio represents my learning journey —
+    and it's just the beginning.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- WHAT I'M BUILDING -->
+
+<section>
+
+<div class="section-title">
+    <span>02 — Focus</span>
+    <h2>What I'm Building</h2>
+    <p>Three things I'm focusing on right now.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+    <div class="icon">💻</div>
+    <h3>Programming</h3>
+    <p>
+        Building strong programming fundamentals and learning
+        how code works step by step.
+    </p>
+</div>
+
+<div class="card">
+    <div class="icon">🌐</div>
+    <h3>Web Development</h3>
+    <p>
+        Exploring HTML, CSS and modern ways to create
+        clean and responsive websites.
+    </p>
+</div>
+
+<div class="card">
+    <div class="icon">🧠</div>
+    <h3>Problem Solving</h3>
+    <p>
+        Learning to break problems into smaller parts
+        and solve them using logical thinking.
+    </p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="section-title">
+    <span>03 — Skills</span>
+    <h2>Learning Progress</h2>
+    <p>My current learning stage — improving every day.</p>
+</div>
+
+<div class="skills">
+
+<div class="skill">
+    <div class="skill-head">
+        <span>HTML</span>
+        <span>Learning</span>
+    </div>
+
+    <div class="bar">
+        <div class="fill" style="width:70%"></div>
+    </div>
+</div>
+
+
+<div class="skill">
+    <div class="skill-head">
+        <span>CSS</span>
+        <span>Learning</span>
+    </div>
+
+    <div class="bar">
+        <div class="fill" style="width:50%"></div>
+    </div>
+</div>
+
+
+<div class="skill">
+    <div class="skill-head">
+        <span>JavaScript</span>
+        <span>Next Step</span>
+    </div>
+
+    <div class="bar">
+        <div class="fill" style="width:20%"></div>
+    </div>
+</div>
+
+
+<div class="skill">
+    <div class="skill-head">
+        <span>Programming Logic</span>
+        <span>Developing</span>
+    </div>
+
+    <div class="bar">
+        <div class="fill" style="width:40%"></div>
+    </div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="section-title">
+    <span>04 — Projects</span>
+    <h2>Things I'm Building</h2>
+    <p>Small projects today. Bigger ideas tomorrow.</p>
+</div>
+
+<div class="grid">
+
+<div class="card project">
+
+<div>
+    <div class="project-tag">PROJECT 01</div>
+    <h3>Personal Portfolio</h3>
+
+    <p>
+        A responsive personal website designed to showcase
+        my learning journey and future projects.
+    </p>
+</div>
+
+<a href="#">View Project →</a>
+
+</div>
+
+
+<div class="card project">
+
+<div>
+    <div class="project-tag">PROJECT 02</div>
+    <h3>Mini Web Project</h3>
+
+    <p>
+        A simple project created while learning HTML and CSS,
+        focused on clean design and responsive layouts.
+    </p>
+</div>
+
+<a href="#">View Project →</a>
+
+</div>
+
+
+<div class="card project">
+
+<div>
+    <div class="project-tag">COMING SOON</div>
+    <h3>Future Project</h3>
+
+    <p>
+        More projects will appear here as I continue
+        learning programming and development.
+    </p>
+</div>
+
+<a href="#">Stay Tuned →</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- JOURNEY -->
+
+<section id="journey">
+
+<div class="section-title">
+    <span>05 — Journey</span>
+    <h2>My Learning Path</h2>
+    <p>One step at a time.</p>
+</div>
+
+<div class="timeline">
+
+<div class="step">
+    <small>STEP 01</small>
+    <h3>Learn the Fundamentals</h3>
+    <p>
+        Understanding computer basics, programming concepts,
+        HTML and CSS.
+    </p>
+</div>
+
+
+<div class="step">
+    <small>STEP 02</small>
+    <h3>Build Small Projects</h3>
+    <p>
+        Turning what I learn into practical websites and
+        small coding projects.
+    </p>
+</div>
+
+
+<div class="step">
+    <small>STEP 03</small>
+    <h3>Learn JavaScript</h3>
+    <p>
+        Moving towards interactive websites and stronger
+        programming skills.
+    </p>
+</div>
+
+
+<div class="step">
+    <small>STEP 04</small>
+    <h3>Build Bigger Things</h3>
+    <p>
+        Creating more advanced projects and continuously
+        improving as a developer.
+    </p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section>
+
+<div class="contact">
+
+<h2>Let's Build Something.</h2>
+
+<p>
+    I'm at the beginning of my coding journey,
+    but I'm excited about where it can take me.
+</p>
+
+<a href="mailto:your@email.com" class="btn primary">
+    Contact Me →
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Tarun. Built while learning to code.
+
+</footer>
+
+</body>
+</html>
